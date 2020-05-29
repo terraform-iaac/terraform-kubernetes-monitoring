@@ -14,4 +14,12 @@
       value = "prometheus-operator"
     }
     
+### If used out nginx-controller module set this into module:
+    metrics_enabled = true
+    
+#### Helm provider version <=1.2.1
+#### Kubernetes provider version <=1.11.1
+Template version: 8.13.8
+
+
 Source: https://github.com/helm/charts/tree/master/stable/prometheus-operator
