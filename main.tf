@@ -149,6 +149,14 @@ resource "helm_release" "prometheus-operator" {
     name = "prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage"
     value = kubernetes_persistent_volume.prometheus_pv.spec.0.capacity.storage
   }
+  set {
+    name = "prometheus.prometheusSpec.retentionSize"
+    value = var.prometheus_retentionSize == null ? "${kubernetes_persistent_volume.prometheus_pv.spec.0.capacity.storage}B" : var.prometheus_retentionSize
+  }
+  set {
+    name = "prometheus.prometheusSpec.retention"
+    value = var.prometheus_retention
+  }
 
   # Grafana
   set {

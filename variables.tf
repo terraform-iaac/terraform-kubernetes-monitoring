@@ -74,6 +74,14 @@ variable "alertmanager_pv_access_modes" {
   type = string
   default = "ReadWriteMany"
 }
+variable "prometheus_retentionSize" {
+  description = "Used Storage Prometheus shall retain data for. Example 50GiB (50 Gigabyte)"
+  default = null
+}
+variable "prometheus_retention" {
+  description = "Time duration Prometheus shall retain data for. Must match the regular expression [0-9]+(ms|s|m|h|d|w|y) (milliseconds seconds minutes hours days weeks years)"
+  default = "10d"
+}
 
 variable "grafana_pv_name" {
   description = "Grafana Persistant volume name"
