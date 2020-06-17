@@ -14,7 +14,7 @@
       value = "prometheus-operator"
     }
     
-### If used out nginx-controller module set this into module:
+### If you use our nginx-controller module set next variable:
     metrics_enabled = true
     
 #### Helm provider version <=1.2.1
