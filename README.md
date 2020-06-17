@@ -1,5 +1,5 @@
 # Prometheus + Alertmanager + Grafana
-## Modules design to work with NFS
+## Modules design to work with NFS. Please add monitoring folder on nfs, or redefine path_nfs variable
 ### Note: If you want to see nginx-ingress-conroller metrics in grafana, please add next set to nginx-ingress-controller:
     {
       name = "controller.metrics.enabled"
