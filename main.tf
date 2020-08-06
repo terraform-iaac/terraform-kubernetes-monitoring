@@ -55,8 +55,8 @@ resource "helm_release" "prometheus-operator" {
   cleanup_on_fail = true
   version = local.prometheus_chart_version
 
-  # Set grafana.ini with ldap_auth
-  values = var.grafana_ldap_enable ? [file("${path.module}/templates/grafana.yaml")] : null
+  # Set grafana.ini with ldap_auth or your custom values
+  values = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : null, var.additional_values]
 
   # Disable unused metrics
   set {

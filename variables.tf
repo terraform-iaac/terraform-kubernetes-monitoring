@@ -9,6 +9,11 @@ variable "additional_set" {
   default = []
 }
 
+variable "additional_values" {
+  description = "Add additional values (FILE)"
+  default = ""
+}
+
 # Namespace
 variable "namespace" {
   description = "Namespace name"
