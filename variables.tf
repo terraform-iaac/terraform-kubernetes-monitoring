@@ -1,6 +1,6 @@
 locals {
   prometheus_chart = "prometheus-operator"
-  prometheus_chart_version = "8.13.8"
+  prometheus_chart_version = "9.3.1"
   prometheus_repository = "https://kubernetes-charts.storage.googleapis.com"
 }
 
