@@ -38,6 +38,15 @@ variable "nfs_path" {
 }
 
 # Persitant Volumes
+variable "prometheus_disk_type" {
+  description = "Prometheus disk type (nfs,gce,aws)"
+  type = string
+  default = "nfs"
+}
+variable "prometheus_disk_param" {
+  description = "Param for disk"
+  default = []
+}
 variable "prometheus_pv_name" {
   description = "Prometheus Persistant volume name"
   type = string
