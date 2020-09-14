@@ -45,7 +45,7 @@ variable "prometheus_disk_type" {
 }
 variable "prometheus_disk_param" {
   description = "Param for disk"
-  default = []
+  default = [{}]
 }
 variable "prometheus_pv_name" {
   description = "Prometheus Persistant volume name"
