@@ -4,10 +4,10 @@ resource "kubernetes_persistent_volume" "prometheus_pv" {
   }
   spec {
     access_modes = ["${var.prometheus_pv_access_modes}"]
-    capacity = {
-      storage = var.prometheus_pv_size
+    capacity     = {
+      storage    = var.prometheus_pv_size
     }
-    storage_class_name = var.prometheus_pv_storage_class_name
+    storage_class_name               = var.prometheus_pv_storage_class_name
     persistent_volume_reclaim_policy = "Retain"
     persistent_volume_source {
       dynamic nfs {
@@ -47,14 +47,14 @@ resource "kubernetes_persistent_volume" "alertmanager_pv" {
   }
   spec {
     access_modes = ["${var.alertmanager_pv_access_modes}"]
-    capacity = {
-      storage = var.alertmanager_pv_size
+    capacity     = {
+      storage    = var.alertmanager_pv_size
     }
     storage_class_name = var.alertmanager_storage_class_name
     persistent_volume_reclaim_policy = "Retain"
     persistent_volume_source {
       nfs {
-        path = var.nfs_path
+        path   = var.nfs_path
         server = var.nfs_endpoint
       }
     }
@@ -66,14 +66,14 @@ resource "kubernetes_persistent_volume" "grafana_pv" {
   }
   spec {
     access_modes = ["${var.grafana_pv_access_modes}"]
-    capacity = {
-      storage = var.grafana_pv_size
+    capacity     = {
+      storage    = var.grafana_pv_size
     }
-    storage_class_name = var.grafana_storage_class_name
+    storage_class_name               = var.grafana_storage_class_name
     persistent_volume_reclaim_policy = "Retain"
     persistent_volume_source {
       nfs {
-        path = var.nfs_path
+        path   = var.nfs_path
         server = var.nfs_endpoint
       }
     }
