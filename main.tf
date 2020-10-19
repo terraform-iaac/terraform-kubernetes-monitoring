@@ -56,7 +56,7 @@ resource "helm_release" "prometheus-operator" {
   version         = local.prometheus_chart_version
 
   # Set grafana.ini with ldap_auth or your custom values
-  values = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : null, var.additional_values]
+  values = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : "", var.additional_values]
 
   # Disable unused metrics
   set {
