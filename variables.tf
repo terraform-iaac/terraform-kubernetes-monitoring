@@ -1,6 +1,6 @@
 locals {
   prometheus_chart         = "kube-prometheus-stack"
-  prometheus_chart_version = "10.1.0"
+  prometheus_chart_version = "12.0.1"
   prometheus_repository    = "https://prometheus-community.github.io/helm-charts"
 }
 
