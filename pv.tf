@@ -3,7 +3,7 @@ resource "kubernetes_persistent_volume" "prometheus_pv" {
     name = var.prometheus_pv_name
   }
   spec {
-    access_modes = ["${var.prometheus_pv_access_modes}"]
+    access_modes = [var.prometheus_pv_access_modes]
     capacity     = {
       storage    = var.prometheus_pv_size
     }
@@ -46,7 +46,7 @@ resource "kubernetes_persistent_volume" "alertmanager_pv" {
     name = var.alertmanager_pv_name
   }
   spec {
-    access_modes = ["${var.alertmanager_pv_access_modes}"]
+    access_modes = [var.alertmanager_pv_access_modes]
     capacity     = {
       storage    = var.alertmanager_pv_size
     }
@@ -65,7 +65,7 @@ resource "kubernetes_persistent_volume" "grafana_pv" {
     name = var.grafana_pv_name
   }
   spec {
-    access_modes = ["${var.grafana_pv_access_modes}"]
+    access_modes = [var.grafana_pv_access_modes]
     capacity     = {
       storage    = var.grafana_pv_size
     }
