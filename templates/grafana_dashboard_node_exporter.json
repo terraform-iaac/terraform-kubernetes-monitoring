@@ -6049,7 +6049,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Process schdeule stats Running / Waiting",
+          "title": "Process schedule stats Running / Waiting",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -9592,7 +9592,7 @@
               "step": 4
             },
             {
-              "expr": "node_filesystem_device_error{instance=\"$node\",job=\"$job\",device!~'rootfs'}",
+              "expr": "node_filesystem_device_error{instance=\"$node\",job=\"$job\",device!~'rootfs',fstype!~'tmpfs'}",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 2,
@@ -13696,5 +13696,6 @@
   "variables": {
     "list": []
   },
-  "version": 47
+  "version": 47,
+  "description": "Prometheus node exporter sample dashbboard"
 }

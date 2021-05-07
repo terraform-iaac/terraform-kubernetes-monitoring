@@ -4,7 +4,7 @@ resource "kubernetes_namespace" "namespace" {
     annotations = {
       name = var.namespace
     }
-    name   = var.namespace
+    name = var.namespace
   }
 }
 
@@ -12,7 +12,7 @@ resource "kubernetes_config_map" "grafana_additional_dashboards" {
   metadata {
     name      = "grafana-additional-dashboards"
     namespace = var.create_namespace ? kubernetes_namespace.namespace[0].id : var.namespace
-    labels    = {
+    labels = {
       "grafana_dashboard" = "1"
     }
   }
@@ -25,7 +25,7 @@ resource "kubernetes_config_map" "grafana_additional_dashboards" {
 
 data "template_file" "grafana_ldap_toml" {
   template = file("${path.module}/templates/ldap.toml")
-  vars     = {
+  vars = {
     host            = var.grafana_ldap_host
     bind_dn         = var.grafana_ldap_bind_dn
     bind_password   = var.grafana_ldap_bind_password
@@ -42,7 +42,7 @@ resource "kubernetes_secret" "grafana_ldap_toml" {
     namespace = var.create_namespace ? kubernetes_namespace.namespace[0].id : var.namespace
   }
 
-  data        = {
+  data = {
     ldap-toml = data.template_file.grafana_ldap_toml.rendered
   }
 }
@@ -76,6 +76,10 @@ resource "helm_release" "prometheus-operator" {
   set {
     name  = "alertmanager.ingress.enabled"
     value = "true"
+  }
+  set {
+    name  = "alertmanager.ingress.pathType"
+    value = "ImplementationSpecific"
   }
   set {
     name  = "alertmanager.ingress.hosts[0]"
@@ -115,6 +119,10 @@ resource "helm_release" "prometheus-operator" {
   set {
     name  = "prometheus.ingress.enabled"
     value = "true"
+  }
+  set {
+    name  = "prometheus.ingress.pathType"
+    value = "ImplementationSpecific"
   }
   set {
     name  = "prometheus.ingress.hosts[0]"
@@ -162,6 +170,10 @@ resource "helm_release" "prometheus-operator" {
   set {
     name  = "grafana.ingress.enabled"
     value = "true"
+  }
+  set {
+    name  = "grafana.ingress.pathType"
+    value = "ImplementationSpecific"
   }
   set {
     name  = "grafana.ingress.hosts[0]"
@@ -226,9 +238,9 @@ resource "helm_release" "prometheus-operator" {
     content {
       name  = set.value.name
       value = set.value.value
-      type  = lookup(set.value, "type", null )
+      type  = lookup(set.value, "type", null)
     }
   }
 
-  depends_on = [kubernetes_persistent_volume.prometheus_pv, kubernetes_persistent_volume.alertmanager_pv, kubernetes_persistent_volume.grafana_pv,kubernetes_config_map.grafana_additional_dashboards]
+  depends_on = [kubernetes_persistent_volume.prometheus_pv, kubernetes_persistent_volume.alertmanager_pv, kubernetes_persistent_volume.grafana_pv, kubernetes_config_map.grafana_additional_dashboards]
 }

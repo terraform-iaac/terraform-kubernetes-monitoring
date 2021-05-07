@@ -1,6 +1,6 @@
 locals {
   prometheus_chart         = "kube-prometheus-stack"
-  prometheus_chart_version = "12.0.1"
+  prometheus_chart_version = "15.2.0"
   prometheus_repository    = "https://prometheus-community.github.io/helm-charts"
 }
 
@@ -23,7 +23,7 @@ variable "namespace" {
 variable "create_namespace" {
   description = "Create namespace by module ? true or false"
   type        = bool
-  default      = true
+  default     = true
 }
 
 # NFS
