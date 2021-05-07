@@ -1,7 +1,13 @@
 locals {
-  prometheus_chart         = "kube-prometheus-stack"
-  prometheus_chart_version = "15.2.0"
-  prometheus_repository    = "https://prometheus-community.github.io/helm-charts"
+  prometheus_chart      = "kube-prometheus-stack"
+  prometheus_repository = "https://prometheus-community.github.io/helm-charts"
+}
+
+
+variable "prometheus_chart_version" {
+  description = "Chart version"
+  type        = string
+  default     = "15.2.0"
 }
 
 variable "additional_set" {

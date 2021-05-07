@@ -53,7 +53,7 @@ resource "helm_release" "prometheus-operator" {
   chart           = local.prometheus_chart
   namespace       = var.create_namespace ? kubernetes_namespace.namespace[0].id : var.namespace
   cleanup_on_fail = true
-  version         = local.prometheus_chart_version
+  version         = var.prometheus_chart_version
 
   # Set grafana.ini with ldap_auth or your custom values
   values = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : "", var.additional_values]
