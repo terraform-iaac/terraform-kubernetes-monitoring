@@ -12,8 +12,8 @@ Also, optional (default ***false***), you can enable grafana ldap module to gran
 Name | Description
 --- | --- |
 Terraform | >= v0.14.9
-Helm provider | >=1.2.1
-Kubernetes provider | >=1.11.1
+Helm provider | >= 1.2.1
+Kubernetes provider | >= 1.11.1
 
 ## Usage
 
