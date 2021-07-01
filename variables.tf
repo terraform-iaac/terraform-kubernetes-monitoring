@@ -1,6 +1,7 @@
 locals {
   prometheus_chart      = "kube-prometheus-stack"
   prometheus_repository = "https://prometheus-community.github.io/helm-charts"
+  grafana_ldap_auth     = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : ""]
 }
 
 
@@ -17,7 +18,8 @@ variable "additional_set" {
 
 variable "additional_values" {
   description = "Add additional values (FILE)"
-  default     = ""
+  type        = list(any)
+  default     = []
 }
 
 # Namespace
