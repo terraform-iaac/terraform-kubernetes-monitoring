@@ -75,7 +75,7 @@ Name | Description | Type | Default | Example | Required
 --- | --- | --- | --- |--- |--- 
 prometheus_chart_version | Prometheus Chart version | `string` | `15.2.0` | n/a | no
 additional_set | Add additional set for helm prometheus-operator | <pre>list(object({<br>    name  = string<br>    value = string<br>    type  = string // Optional<br>  }))</pre> | `[]` | n/a | no |
-additional_values | Add additional values (FILE) | `list(any)` | `[]` | `[file("../alertmanager_helm_config.yaml, [file("../prom_helm_config.yaml]")` | no
+additional_values | Add additional values (FILE) | `list(any)` | `[]` | `[file("../alertmanager_helm_config.yaml, file("../prom_helm_config.yaml]")` | no
 namespace | Name of namespace where you want to deploy monitoring | `string` | `monitoring` | n/a | no
 create_namespace | Create namespace by module? true or false | `bool` | true | n/a | no
 nfs_endpoint | NFS with config files endpoint | `string` | `10.10.10.10` | n/a | yes
