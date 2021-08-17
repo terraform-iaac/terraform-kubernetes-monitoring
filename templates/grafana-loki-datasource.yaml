@@ -1,0 +1,9 @@
+apiVersion: 1
+datasources:
+  - name: Loki
+    type: loki
+    url: ${LOKI_URL}/
+    access: proxy
+    editable: false
+    jsonData:
+      timeInterval: 30s

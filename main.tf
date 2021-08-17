@@ -17,9 +17,28 @@ resource "kubernetes_config_map" "grafana_additional_dashboards" {
     }
   }
   data = {
-    "grafana-dashboard-node-exporter.json"    = file("${path.module}/templates/grafana_dashboard_node_exporter.json")
-    "grafana-dashboard-node-exporter_en.json" = file("${path.module}/templates/grafana_dashboard_node_exporter_en.json")
-    "grafana-dashboard-nginx-controller.json" = file("${path.module}/templates/grafana_dashboard_nginx_controller.json")
+    "grafana-dashboard-node-exporter.json"    = file("${path.module}/templates/grafana-dashboard-node-exporter.json")
+    "grafana-dashboard-node-exporter_en.json" = file("${path.module}/templates/grafana-dashboard-node-exporter_en.json")
+    "grafana-dashboard-nginx-controller.json" = file("${path.module}/templates/grafana-dashboard-nginx-controller.json")
+  }
+}
+
+resource "kubernetes_config_map" "grafana_additional_datasource" {
+  count = var.loki_url != null ? 1 : 0
+
+  metadata {
+    name      = "grafana-additional-datasource"
+    namespace = var.create_namespace ? kubernetes_namespace.namespace[0].id : var.namespace
+    labels = {
+      "grafana_datasource" = "1"
+    }
+  }
+  data = {
+    "grafana-loki-stack-datasource.yaml" = templatefile("${path.module}/templates/grafana-loki-datasource.yaml",
+      {
+        LOKI_URL = var.loki_url
+      }
+    )
   }
 }
 

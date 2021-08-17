@@ -234,3 +234,10 @@ variable "grafana_ldap_editor_group_dn" {
   type        = string
   default     = "cn=grafana_editor,ou=groups,ou=company,dc=ldap,dc=com"
 }
+
+# Loki Datasource
+variable "loki_url" {
+  description = "URL for access to loki-stack"
+  type        = string
+  default     = null
+}
