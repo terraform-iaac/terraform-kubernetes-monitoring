@@ -18,7 +18,7 @@ resource "kubernetes_config_map" "grafana_additional_dashboards" {
   }
   data = {
     "grafana-dashboard-node-exporter.json"    = file("${path.module}/templates/grafana-dashboard-node-exporter.json")
-    "grafana-dashboard-node-exporter_en.json" = file("${path.module}/templates/grafana-dashboard-node-exporter_en.json")
+    "grafana-dashboard-node-exporter_en.json" = file("${path.module}/templates/grafana-dashboard-node-exporter-en.json")
     "grafana-dashboard-nginx-controller.json" = file("${path.module}/templates/grafana-dashboard-nginx-controller.json")
   }
 }

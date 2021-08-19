@@ -4,14 +4,14 @@ Terraform module for monitoring your kubernetes cluster resources.
 
 ## Wokrflow
 
-Module all necessary resources for monitor important objects inside your kubernetes cluster. Previously you need to create kubernetes secret with certificate to your domain name or create separate certs for grafana, alertmanager nad prometheus.
+This module creates all necessary resources for monitor important objects inside your kubernetes cluster. Previously you need to create kubernetes secret with certificate to your domain name or create separate certs for grafana, alertmanager nad prometheus.
 Also, optional (default ***false***), you can enable grafana ldap module to grant access for users from your LDAP server or use default admin account.
 
 ## Software Requirements
 
 Name | Description
 --- | --- |
-Terraform | >= v0.14.9
+Terraform | >= 0.14.9
 Helm provider | >= 1.2.1
 Kubernetes provider | >= 1.11.1
 
