@@ -8,7 +8,7 @@ locals {
 variable "prometheus_chart_version" {
   description = "Chart version"
   type        = string
-  default     = "15.2.0"
+  default     = "18.0.1"
 }
 
 variable "additional_set" {
