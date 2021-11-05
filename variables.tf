@@ -189,9 +189,8 @@ variable "grafana_tls" {
 
 # Grafana Auth
 variable "grafana_admin_password" {
-  description = "Grafana Admin Password ( Please redefine )"
+  description = "Grafana Admin Password"
   type        = string
-  default     = "GrafanaSuperPassword"
 }
 
 variable "grafana_ldap_enable" {

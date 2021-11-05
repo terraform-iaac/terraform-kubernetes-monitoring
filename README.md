@@ -120,7 +120,7 @@ grafana_tls | Overwrite tls instead of general whitelist for grafana | `string` 
 ### Grafana Auth
 Name | Description | Type | Default | Example | Required
 --- | --- | --- | --- |--- |--- 
-grafana_admin_password | Grafana Admin Password ( Please redefine ) | `string` | `GrafanaSuperPassword` | `My?SeCrEtP@sSsF(W)0RD` | yes
+grafana_admin_password | Grafana Admin Password | `string` | n/a | `My?SeCrEtP@sSsF(W)0RD` | yes
 grafana_ldap_enable | Ldap configs load | `bool` | false | n/a | no
 grafana_ldap_host | grafana_ldap_host | `string` | `ldap.com` | `local.ldap.my` | no
 grafana_ldap_bind_dn | Bind DN ( ussualy reader ) | `string` | `cn=reader,ou=users,ou=company,dc=ldap,dc=com` | n/a | no
