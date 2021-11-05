@@ -42,7 +42,7 @@ variable "nfs_endpoint" {
 variable "nfs_path" {
   description = "(Optional) Path on NFS, where volumes will create. (Need create manually and give permissions). Also you can set '/' "
   type        = string
-  default     = "/"
+  default     = "/monitoring"
 }
 
 # Persitant Volumes

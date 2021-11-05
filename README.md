@@ -116,6 +116,7 @@ tls | TLS Secret name for all URLs | `string` | n/a | `secret-tls` | yes
 prometheus_tls | Overwrite tls instead of general whitelist for prometheus | `string` | null | `prometheus-secret-tls` | no
 alertmanager_tls | Overwrite tls instead of general whitelist for alertmanager | `string` | null | `alertmanager-secret-tls` | no
 grafana_tls | Overwrite tls instead of general whitelist for grafana | `string` | null | `grafana-secret-tls` | no
+nfs_path | (Optional) Path on NFS, where volumes will create. (Need create manually and give permissions) | `string` | `"/"` | `/my_path` | no
 
 ### Grafana Auth
 Name | Description | Type | Default | Example | Required
