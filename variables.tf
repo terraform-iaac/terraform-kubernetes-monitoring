@@ -8,7 +8,7 @@ locals {
 variable "prometheus_chart_version" {
   description = "Chart version"
   type        = string
-  default     = "18.0.1"
+  default     = "19.2.3"
 }
 
 variable "additional_set" {
@@ -42,7 +42,7 @@ variable "nfs_endpoint" {
 variable "nfs_path" {
   description = "(Optional) Path on NFS, where volumes will create. (Need create manually and give permissions). Also you can set '/' "
   type        = string
-  default     = "/monitoring"
+  default     = "/"
 }
 
 # Persitant Volumes

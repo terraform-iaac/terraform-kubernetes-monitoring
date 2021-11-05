@@ -12,7 +12,7 @@ Also, optional (default ***false***), you can enable grafana ldap module to gran
 Name | Description
 --- | --- |
 Terraform | >= 0.14.9
-Helm provider | >= 1.2.1
+Helm provider | >= 2.1.0
 Kubernetes provider | >= 1.11.1
 
 ## Usage
@@ -79,7 +79,7 @@ additional_values | Add additional values (FILE) | `list(any)` | `[]` | `[file("
 namespace | Name of namespace where you want to deploy monitoring | `string` | `monitoring` | n/a | no
 create_namespace | Create namespace by module? true or false | `bool` | true | n/a | no
 nfs_endpoint | NFS with config files endpoint | `string` | `10.10.10.10` | n/a | yes
-nfs_path | (Optional) Path on NFS, where volumes will create. (Need create manually and give permissions). Also you can set '/' | `string` | `"/monitoring"` | `/my_path` | no
+nfs_path | (Optional) Path on NFS, where volumes will create. (Need create manually and give permissions) | `string` | `"/"` | `/my_path` | no
 
 ### Persitant Volumes
 Name | Description | Type | Default | Example | Required
