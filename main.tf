@@ -42,19 +42,6 @@ resource "kubernetes_config_map" "grafana_additional_datasource" {
   }
 }
 
-data "template_file" "grafana_ldap_toml" {
-  template = file("${path.module}/templates/ldap.toml")
-  vars = {
-    host            = var.grafana_ldap_host
-    bind_dn         = var.grafana_ldap_bind_dn
-    bind_password   = var.grafana_ldap_bind_password
-    search_base_dn  = var.grafana_ldap_search_base_dn
-    search_filter   = var.grafana_ldap_search_filter
-    admin_group_dn  = var.grafana_ldap_admin_group_dn
-    editor_group_dn = var.grafana_ldap_editor_group_dn
-  }
-}
-
 resource "kubernetes_secret" "grafana_ldap_toml" {
   metadata {
     name      = "prometheus-operator-grafana-ldap-toml"
@@ -62,7 +49,7 @@ resource "kubernetes_secret" "grafana_ldap_toml" {
   }
 
   data = {
-    ldap-toml = data.template_file.grafana_ldap_toml.rendered
+    ldap-toml = local.grafana_ldap_toml
   }
 }
 

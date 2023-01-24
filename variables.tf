@@ -1,14 +1,7 @@
-locals {
-  prometheus_chart      = "kube-prometheus-stack"
-  prometheus_repository = "https://prometheus-community.github.io/helm-charts"
-  grafana_ldap_auth     = [var.grafana_ldap_enable ? file("${path.module}/templates/grafana.yaml") : ""]
-}
-
-
 variable "prometheus_chart_version" {
   description = "Chart version"
   type        = string
-  default     = "19.2.3"
+  default     = "44.3.0"
 }
 
 variable "additional_set" {
